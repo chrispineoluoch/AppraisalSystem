@@ -1,0 +1,361 @@
+/* CSS Document */
+header {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+ul{
+	margin:0;
+	padding:0;
+}
+
+}
+.navbar-default .navbar-nav > li > a {
+    margin-top:4px;
+    /*text-transform: capitalize;*/
+    font-size:15px;
+    letter-spacing: 0px;
+    font-weight:bold;
+    color:black;
+    padding: 1.0rem;
+    border-bottom: 2px solid transparent;
+    position: relative;
+
+}
+
+.dropdown-menu li{
+    color: #333;
+    padding: 4px 1px;
+    display: block;
+}
+
+}
+.dropdown-menu > li > a {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Giving a background-color to the nav container. */
+.nav { 
+	/*margin:0;
+	padding: 0;
+    font-size:12px;
+    font-weight:800;*/
+}
+
+a.navbar-brand.logo span.fa {
+    color: #fc636b;
+}
+.buttons a {
+    background: #39cc9c;
+    padding: 10px 25px;
+    color: #fff;
+    display: block;
+    border-radius: 4px;
+    letter-spacing: .5px;
+    border: 2px solid #39cc9c;
+}
+.buttons a:hover {
+    opacity: .9;
+}
+
+/* CSS Document */
+header {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.toggle,
+[id^=drop] {
+	display: none;
+}
+
+/* Giving a background-color to the nav container. */
+.nav { 
+	/*margin:0;
+	padding: 0;
+    font-size:12px;
+    font-weight:800;*/
+}
+
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+
+nav:after {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:relative" */
+nav ul {
+	float: right;
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+	}
+	
+/* Positioning the navigation items inline */
+nav ul li {
+	margin: 0px;
+	display: inline-block;
+    /*color: black;*
+	/*float: left;*/
+	}
+
+/* Styling the links */
+.nav a {	
+    text-transform: capitalize;
+	color: black;
+    opacity:0.8;
+    letter-spacing: 0px;
+    font-size: 15px;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    padding: 0.2rem;
+}
+
+.nav a:hover {	
+	color: #EC2027 !important;
+}
+
+.nav navbar-nav{
+
+
+}
+navbar.navbar-collapse.collapse{
+    /*font-size:30px;*/
+
+}
+
+.nav ul li ul li:hover 
+{ 
+    background: #f8f9fa; 
+}
+
+navbar-collapse collapse{
+    width:100%;
+}
+.navbar-default .navbar-nav > li > a {
+    margin-top:4px;
+    font-size:14px;
+    letter-spacing: 0px;
+    font-weight:600;
+    padding: 1.0rem;
+    border-bottom: 2px solid transparent;
+    position: relative;
+
+}
+
+.navbar-default .navbar-nav > li {
+    /*padding: 0.4rem;*/
+}
+
+nav a:hover {	
+    color: red;
+}
+.menu li.active  a{ 
+    color: #000000;
+    background: transparent;
+}
+
+.dropdown-menu li{
+    color: #333;
+    padding: 4px 1px;
+    display: block;
+}
+.dropdown-menu li:hover{
+    color: #fff;
+}
+.dropdown-menu > li > a {
+    font-size:13px;
+}
+.nav navbar-default li {
+    margin: 0px;
+	display: inline-block;
+    color: black;
+    width:160px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+.nav navbar-default li a{
+    text-transform: capitalize;
+	color: brown;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    padding: 0.2rem;
+}
+.navbar-default .navbar-nav > .dropdown > a .caret{
+    color:black;
+    opacity:0.7;
+
+}
+.dropdown-menu > li > a {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
+.dropdown-menu > li > a:hover{
+    color: black !important;
+    background-color:#39cc9c !important;
+    font-size:16px !important;
+}
+
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+nav ul ul {
+	display: none;
+	position: absolute; 
+	/* has to be the same number as the "line-height" of "nav a" */
+	top: 25px; 
+    background: #fff;
+    padding: 10px;
+}
+ul.inner-dropdown a:hover {
+	color: #333;
+}
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+	
+/* First Tier Dropdown */
+nav ul ul li {
+	width:160px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+nav ul ul li a {
+    color: #333;
+    padding: 5px 10px;
+    display: block;
+}
+
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	/* has to be the same number as the "width" of "nav ul ul li" */ 
+	left:170px;
+}
+
+	
+/* Change ' +' in order to change the Dropdown symbol */
+li > a:only-child:after { content: ''; }
+
+/*-- footer --*/
+footer{
+    background: #292929;
+}
+h2.logo a {
+    font-size: .9em;
+    color: #ccc;
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    position: relative;
+}
+h2.logo a span.fa {
+    color: #fc636b;
+}
+.left{
+	text-align: left;
+}
+.middle{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+footer p {
+    font-size: 14px;
+	color: navajowhite;
+}
+footer p a{
+    /*font-size: 14px;*/
+	color: navajowhite;
+}
+footer p a:hover{
+	color: #39cc9c;
+}
+a.move-top {
+    background: #333;
+    padding: 10px 20px;
+    border-radius: 34px;
+    color: #777;
+    letter-spacing: .5px;
+    font-weight: 500;
+}
+/*-- //footer --*/
+
+/*-- banner bottom --*/
+.how-grid h3 {
+    font-size: 23px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: .5px;
+    line-height: 32px;
+    color: #333;
+}
+
+.how-icon span.fa,.how-icon1 span.fa,.how-icon2 span.fa,.how-icon3 span.fa,.how-icon4 span.fa,.how-icon5 span.fa {
+    background: #edf3fe;
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+}
+
+.how-icon span.fa {
+    background: #30c39e;
+}
+.how-icon1 span.fa {
+    background: #f85a40;
+}
+.how-icon2 span.fa {
+    background: #0389ff;
+}
+.how-icon3 span.fa {
+    background: #f48924;
+}
+.how-icon4 span.fa {
+    background: #00bce4;
+}
+.how-icon5 span.fa {
+    background: #009f4d;
+}
+.shadow {
+    box-shadow: 7px 7px 10px 5px rgba(76, 110, 245, .1);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	/*-ms-border-radius: 5px;*/
+	/*-o-border-radius: 5px;*/
+    background: #fff;
+    padding: 25px 20px;
+}
+.banner_bottom{
+	background: #f8f9fa;
+	border-radius: 1%;
+}
+/*-- banner bottom --*/
+

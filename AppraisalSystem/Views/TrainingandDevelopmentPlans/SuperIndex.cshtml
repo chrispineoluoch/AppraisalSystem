@@ -1,0 +1,80 @@
+﻿@model IEnumerable<AppraisalSystem.Models.traininganddevelopmentplan>
+
+@{
+    ViewBag.Title = "Supervisor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <h4>STAFF EVALUATION FORM: TRAINING AND PERSONAL DEVELOPMENT PLAN</h4>
+
+    @{ int rowNo = 0; }
+    <table class="table table-hover table-responsive container" style="word-wrap:break-word;">
+        <tr style="border:solid;border-width:thin;background-color:#375A7F;color:white;">
+            <th style="border:solid;border-width:thin;color:#dfd7ca;">
+                SN
+            </th>
+            <th style="border:solid;border-width:thin;color:#dfd7ca;">
+                Full Name
+            </th>
+            <th style="border:solid;border-width:thin;color:#dfd7ca;">
+                Financial Year
+            </th>
+            <th style="border:solid;border-width:thin;color:#dfd7ca;">
+                Training Program
+            </th>
+            <th style="border:solid;border-width:thin;color:#dfd7ca;">
+                Training Institute
+            </th>
+            <th style="border:solid;border-width:thin;color:#dfd7ca;">
+                HOD Comments
+            </th>
+            <th style="border:solid;border-width:thin;color:#dfd7ca;"></th>
+        </tr>
+
+        @if (Model.Count() == 0)
+        {
+            <tr style="border:solid;border-width:thin;">
+                <td colspan="9" style="font-style:italic;"> No records at the moment.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @(rowNo += 1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FinancialYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrainingProgram)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrainingInstitute)
+                    </td>
+                    <td>
+                        @Html.Raw(item.HODComments)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "SuperEdit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</center>
+
+<style>
+    .mycardbutton {
+        border: 2px solid #006633 !important;
+        background-color: #006633 !important;
+        color: white !important;
+    }
+</style>

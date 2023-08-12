@@ -1,0 +1,35 @@
+﻿@model AppraisalSystem.Models.RoleViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5 style="position:relative;top:15px;font-weight:normal;">Create New Role </h5>
+<hr />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row" style="border:none;text-decoration-color:#293955;margin-bottom:0px;">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="col-md-4">
+                    <p>
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "form-control-sm", style = "font-size:smaller;font-weight:550;position:relative;top:5px;" })
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", style = "border-color:#06080C;resize:both;transform:scale(0.7);position:relative;left:-42px;" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </p>
+                    <br />
+                    <input type="submit" value="Create" class="btn btn-primary" style="position:relative;transform:scale(0.7);position:relative;left:-11px;top:-17px;"/>
+                </div>
+
+
+            </div>
+        }
+
+<div style="font-size:smaller;border:none;text-decoration-color:#293955;">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+                

@@ -1,0 +1,129 @@
+﻿@model AppraisalSystem.Models.valuesandcompetency
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>valuesandcompetency</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PFNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PFNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamSpirit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamSpirit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Integrity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Integrity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InitiativeandSelfdrive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InitiativeandSelfdrive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterpersonalRelations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterpersonalRelations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PunctualityandAttendance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PunctualityandAttendance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechnicalCompetencies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechnicalCompetencies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DependabilityandResourcefulness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DependabilityandResourcefulness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceManagement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResourceManagement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryandPromptness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryandPromptness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttitudetoWorkandColleagues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttitudetoWorkandColleagues)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalScore)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

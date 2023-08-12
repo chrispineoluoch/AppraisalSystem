@@ -1,0 +1,287 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Jumbotron start-->
+<div class="jumbotron" style="max-height:240px;background-color:#ec2028 !important;opacity:0.9;color:white;box-shadow: 0 5px 15px rgba(145, 92, 182, .4);margin-top:-50px;border-radius:0px;">
+    <div class="">
+        <h1>ICTA Online Appraisal System</h1>
+        <p class="lead">Access the latest updates, guidance and policies related to the COVID-19 pandemic through the link below.</p>
+        <button type="button" class="btn navbutton borderradiuszero mynavbarbutton" style="font-size:14px;">INFORMATION FOR THE ICTA COMMUNITY OF COVID-19</button>
+    </div>
+</div>
+<!--Jumbotron end-->
+
+<!--Board Start-->
+<div>
+    <div class="container myboard">
+        <nav>
+            <div class="nav nav-pills justify-content-center tab-border" id="nav-tab" role="tablist">
+                <a class="nav-item myconsolidatednavs nav-link active pill-active" id="nav-notice6-tab" data-toggle="tab" href="#nav-notice6" role="tab" aria-controls="nav-notice6-tab" aria-selected="true">Click to View Appraisee Tab</a>
+                <a class="nav-item myconsolidatednavs nav-link pill-active" data-toggle="tab" href="#nav-notice7" role="tab" aria-controls="nav-notice7-tab" aria-selected="false">Click to View Supervisor Tab </a>
+                <a class="nav-item myconsolidatednavs nav-link pill-active" id="nav-notice8-tab" data-toggle="tab" href="#nav-notice8" role="tab" aria-controls="nav-notice8-tab" aria-selected="false">Click to View Contact Information </a>
+            </div>
+        </nav>
+        <div class="tab-content container" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-notice6" role="tabpanel" aria-labelledby="nav-notice6-tab">
+                <div>
+                    <h5 style="text-align:center;margin-top:20px;">Welcome to the Appraisee's Tab.</h5>
+                    <!--Card start-->
+                    <div class="row mytabmargin">
+                        <div class="col">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Personal Details</h5>
+                                    <p class="card-text myfont">Open this form to add or update your personal staff details.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("Index", "PersonalDetails")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">My Appraisal Summary</h5>
+                                    <p class="card-text myfont">Open this form to view your appraisal summary.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("MyAppraisalSummary", "PerformanceTargets")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Performance Targets - Appraisees</h5>
+                                    <p class="card-text myfont">Open this form to set performance targets.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("Index", "PerformanceTargets")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Appraisee's Comments</h5>
+                                    <p class="card-text myfont">Open this form to add your comments as the appraisee.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("Index", "AppraiseeandSupervisorComments")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Training and Development Plans - Appraisees</h5>
+                                    <p class="card-text myfont">Open this form to add training and development plans..</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("Index", "TrainingandDevelopmentPlans")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Card end-->
+                </div>
+            </div>
+            <div class="tab-pane fade show" id="nav-notice7" role="tabpanel" aria-labelledby="nav-notice7-tab">
+                <div>
+                    <h5 style="text-align:center;margin-top:20px;">Welcome to the Supervisor's Tab.</h5>
+                    <!--Card start-->
+                    <div class="row mytabmargin">
+                        <div class="col">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Values and Competencies</h5>
+                                    <p class="card-text myfont">Open this form to appraise the values and competencies of staff.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("Index", "ValuesandCompetencies")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Staff Appraisal Summary</h5>
+                                    <p class="card-text myfont">Open this form to access the appraisal summary form.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("AppraisalSummary", "PerformanceTargets")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Performance Targets - Supervisors</h5>
+                                    <p class="card-text myfont">Open this form to appraise performance targets.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("SupervisorIndex", "PerformanceTargets")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Supervisor's Comments</h5>
+                                    <p class="card-text myfont">Open this form to add your comments to an appraisal form as the supervisor.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("Supervisor", "AppraiseeandSupervisorComments")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Training and Development Plans - Supervisors</h5>
+                                    <p class="card-text myfont">Open this form to add training and development plans..</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("SuperIndex", "TrainingandDevelopmentPlans")" class="btn btn-primary mycardbutton">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Card end-->
+                </div>
+            </div>
+            <div class="tab-pane fade show" id="nav-notice8" role="tabpanel" aria-labelledby="nav-notice8-tab">
+                <div style="position:relative;left:10px;top:10px;">
+                    <div style="position:relative;left:10px;top:10px;">
+                        <p class="contactcardtext" style="font-size:16px;text-align:center;color:#006633!important;">
+                            The ICT Authority<br />
+                            PMO Department<br />
+                            Email: info@icta.go.ke<br />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Board End-->
+
+<!--styles and scripts start-->
+<style>
+    .blackback {
+        background-color: transparent !important;
+    }
+
+    .whitebutton {
+        color: white !important;
+        background-color: #E9C225;
+        border-radius: 0px !important;
+        height: 65px;
+        text-align: center;
+        line-height: 38px;
+        cursor: pointer;
+        width: 150px !important;
+        border-color: transparent !important;
+    }
+
+        .whitebutton:hover {
+            box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+        }
+
+        .whitebutton a {
+            color: white;
+        }
+
+    .mynavbarbutton {
+        border: 2px solid white;
+        color: white;
+    }
+
+        .mynavbarbutton:hover {
+            border: 2px solid #006633;
+            background-color: #006633;
+            color: white !important;
+        }
+
+    .navbutton > a {
+        color: #006633 !important;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .navbutton:hover > a {
+        color: white !important;
+    }
+
+    .cardborder {
+        border-color: transparent;
+    }
+
+        .cardborder:hover {
+            border-right: 5px solid #E9C225;
+        }
+
+    .card.bg-light.mb-3 {
+        height: 210px;
+    }
+
+    .mycardbutton {
+        border: 2px solid #006633 !important;
+        background-color: #006633 !important;
+        color: white !important;
+    }
+
+    .italisized {
+        font-style: italic;
+    }
+    .myconsolidatednavs {
+        color: white !important;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        background-color: #187647 !important;
+        width: 26%;
+        margin-right: 4px;
+        border-radius: 5px !important;
+    }
+    .mytabmargin {
+        margin-top: 20px;
+    }
+
+    .myfont {
+        font-size: 14px;
+        position:relative;
+        top:-8px;
+    }
+    .myboard {
+        border: solid 1px rgba(216,216,216,0.75);
+        padding: 20px;
+    }
+</style>
+
+<script>
+    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 4; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+</script>
+
+<style>
+    .carousel-multi-item .carousel-inner.v-2 .carousel-item.active,
+    .carousel-multi-item .carousel-inner.v-2 .carousel-item-next,
+    .carousel-multi-item .carousel-inner.v-2 .carousel-item-prev {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+</style>
+<!--styles and scripts end-->

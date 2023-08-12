@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul id="username" class="nav navbar-nav" style="position:relative;left:-200px;top:-5px;">
+            <li id="linkusernamelink" style="font-size:13.5px;background-color: transparent;">
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li id="logoff" style="font-size:13.5px;position:relative;left:75px;background-color: transparent;"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <button id="mybtnres" style="font-size:15px;font-weight:600;line-height:1.4;background-color:#39cc9c;padding:6px 12px;border:1px solid #dfd7ca;position:relative;left:-100px;" class="btn mybtn">@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</button>
+}
+
+<style>
+    .mybtn:hover {
+        background-color: #39cc9c !important;
+    }
+
+    #registerLink:hover {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    #loginLink:hover {
+        color: black !important;
+        text-decoration: none !important;
+    }
+</style>
+
+<style>
+    @@media only screen and (min-width: 320px) and (max-width: 1200px) {
+        #username {
+            position: fixed !important;
+            left: 35px !important;
+            top: 155px !important;
+        }
+
+        #logoff {
+            position: fixed !important;
+            left: 20px !important;
+            top: 200px !important;
+        }
+    }
+
+    @@media only screen and (max-width: 1200px) {
+        #mybtnres, #linkusernamelink, #logoff {
+            display: none !important;
+        }
+    }
+</style>

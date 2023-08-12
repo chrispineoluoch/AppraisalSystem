@@ -1,0 +1,132 @@
+﻿@model AppraisalSystem.Models.personaldetails
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <center>
+            <div class="form-horizontal" id="personaldetails">
+                <h4>STAFF EVALUATION FORM: STAFF PERSONAL DETAILS</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <p style="font-style:italic;">
+                    The areas outlined below are the personal details and bio data of ICTA staff.
+                </p>
+
+                <div class="row" id="personaldetails">
+                    <div class="col" style="display:none;">
+                        <div class="form-group" style="display:none;">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "User Name" } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Full Name" } })
+                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PFNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Personal Number" } })
+                                @Html.ValidationMessageFor(model => model.PFNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Designation, new { htmlAttributes = new { @class = "form-control", placeholder = "Designation" } })
+                                @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.JobGroup, new { htmlAttributes = new { @class = "form-control", placeholder = "Job Group" } })
+                                @Html.ValidationMessageFor(model => model.JobGroup, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Department, new { htmlAttributes = new { @class = "form-control", placeholder = "Department" } })
+                                @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NatureofEmployment, new { htmlAttributes = new { @class = "form-control", placeholder = "Nature of Employment" } })
+                                @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.StaffCategory, new { htmlAttributes = new { @class = "form-control", placeholder = "Staff Category" } })
+                                @Html.ValidationMessageFor(model => model.StaffCategory, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.SupervisorName, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Full Name" } })
+                                @Html.ValidationMessageFor(model => model.SupervisorName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.SupervisorPFNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's PF Number" } })
+                                @Html.ValidationMessageFor(model => model.SupervisorPFNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <p style="font-style:italic;">
+                        Academic Qualifications (Specify your academic qualifications).
+                    </p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AcademicQualifications, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AcademicQualifications, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="font-style:italic;">
+                        Personal Certifications (Specify your personal certifications).
+                    </p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ProfessionalCertifications, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProfessionalCertifications, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </center>
+    }
+</div>

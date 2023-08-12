@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Email Verification Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5 class="text-danger" style="position:relative;top:15px;font-weight:600;">@ViewBag.Title.</h5>
+<hr />
+<div style="border:none;margin-bottom:0px;font-size:small;">
+    <p>
+        Thank you for verifying your email account. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "linkcolor", style= "color:#39cc9c;font-style:oblique;" })
+    </p>
+</div>

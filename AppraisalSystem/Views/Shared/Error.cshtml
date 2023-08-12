@@ -1,0 +1,23 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Login Failed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="text-danger" style="position:relative;top:55px;font-weight:600;">Login Failed! </h4>
+<hr />
+<h5>Error Message</h5>
+<div style="border:none;text-decoration-color:#293955;margin-bottom:0px;font-size:small;color:red;">
+    @{
+        if (String.IsNullOrEmpty(ViewBag.errorMessage))
+        {
+            <p class="text-danger">An error occurred while processing your request.</p>
+        }
+        else
+        {
+            <p class="text-danger">@ViewBag.errorMessage</p>
+        }
+    }
+</div>
+

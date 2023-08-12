@@ -1,0 +1,564 @@
+﻿@model AppraisalSystem.Models.valuesandcompetency
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <center>
+        <div class="form-horizontal">
+            <h4>STAFF EVALUATION FORM: STAFF VALUES AND COMPETENCIES</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p style="font-style:italic;">
+                                All staff under your supervision will appear here
+                            </p>
+                            @if (ViewBag.staffList != null)
+                            {
+                                @Html.DropDownListFor(model => model.PFNumber, ViewBag.staffList as SelectList, "Click to Select Staff to Appraise", new { @class = "form-control", placeholder = "Click to Select Staff to Appraise" })
+                            }
+                            @Html.ValidationMessageFor(model => model.PFNumber, "", new { @class = "text-danger" })
+                            <p>
+                                @Html.EditorFor(model => model.PFNumber, (""), new { htmlAttributes = new { @class = "form-control-lg", style = "display:none;", id = "txtNameSelected" } })
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="display:none;">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Full Name", id = "txtFullName" } })
+                            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p style="font-style:italic;">
+                                Select the current financial year
+                            </p>
+                            @Html.DropDownListFor(model => model.FinancialYear, new List<SelectListItem>()
+       {
+           new SelectListItem {Text="2019/2020", Value="2019/2020" },
+           new SelectListItem {Text="2020/2021", Value="2020/2021" },
+           new SelectListItem {Text="2021/2022", Value="2021/2022" },
+           new SelectListItem {Text="2022/2023", Value="2022/2023" },
+           new SelectListItem {Text="2023/2024", Value="2023/2024" }
+       },
+        "Financial Year", new { @class = "form-control", placeholder = "Financial Year" })
+                            @Html.ValidationMessageFor(model => model.FinancialYear, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="">
+                <p style="font-style:italic;">
+                    To be completed by Head of Department/Section
+                </p>
+
+                <table class="table" style="max-width: max-content;border:none;">
+                    <tr>
+                        <th>
+                            SN
+                        </th>
+                        <th>
+                            Competency/Value
+                        </th>
+                        <th>
+                            Grade
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Team spirit
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.TeamSpirit, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.TeamSpirit, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.TeamSpirit, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.TeamSpirit, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.TeamSpirit, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyTeamSpirit" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            Integrity
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.Integrity, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.Integrity, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.Integrity, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.Integrity, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.Integrity, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyIntegrity" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            Initiative and self drive
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.InitiativeandSelfdrive, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.InitiativeandSelfdrive, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.InitiativeandSelfdrive, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.InitiativeandSelfdrive, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.InitiativeandSelfdrive, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyInitiativeandSelfdrive" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            Interpersonal relations
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.InterpersonalRelations, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.InterpersonalRelations, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.InterpersonalRelations, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.InterpersonalRelations, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.InterpersonalRelations, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyInterpersonalRelations" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            Punctuality and attendance
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.PunctualityandAttendance, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.PunctualityandAttendance, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.PunctualityandAttendance, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.PunctualityandAttendance, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.PunctualityandAttendance, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyPunctualityandAttendance" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            6
+                        </td>
+                        <td>
+                            Technical competencies
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.TechnicalCompetencies, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.TechnicalCompetencies, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.TechnicalCompetencies, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.TechnicalCompetencies, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.TechnicalCompetencies, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyTechnicalCompetencies" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            7
+                        </td>
+                        <td>
+                            Dependability and resourcefulness
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.DependabilityandResourcefulness, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.DependabilityandResourcefulness, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.DependabilityandResourcefulness, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.DependabilityandResourcefulness, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.DependabilityandResourcefulness, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyDependabilityandResourcefulness" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            8
+                        </td>
+                        <td>
+                            Resource management
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.ResourceManagement, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.ResourceManagement, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.ResourceManagement, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.ResourceManagement, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.ResourceManagement, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyResourceManagement" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            9
+                        </td>
+                        <td>
+                            Delivery and promptness
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.DeliveryandPromptness, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.DeliveryandPromptness, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.DeliveryandPromptness, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.DeliveryandPromptness, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.DeliveryandPromptness, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyDeliveryandPromptness" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            10
+                        </td>
+                        <td>
+                            Attitude to work and colleagues
+                        </td>
+                        <td>
+                            @Html.RadioButtonFor(model => model.AttitudetoWorkandColleagues, "Poor", new { }) @Html.Label("Poor")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.AttitudetoWorkandColleagues, "Fair", new { }) @Html.Label("Fair")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.AttitudetoWorkandColleagues, "Good", new { }) @Html.Label("Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.AttitudetoWorkandColleagues, "Very Good", new { }) @Html.Label("Very Good")
+                            &nbsp;&nbsp; @Html.RadioButtonFor(model => model.AttitudetoWorkandColleagues, "Excellent", new { }) @Html.Label("Excellent")
+                            &nbsp;&nbsp; <input id="MyAttitudetoWorkandColleagues" name="" type="text" value="" style="width: 100px;text-align: center;" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group" style="display:none;">
+                <p style="font-style:italic;">
+                    Enter the date of submission
+                </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateofSubmission, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateofSubmission, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p style="font-style:italic;">
+                    Total score
+                </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TotalScore, new { htmlAttributes = new { id = "totalscore", @class = "form-control", style = "text-align: center;" } })
+                    @Html.ValidationMessageFor(model => model.TotalScore, "", new { @class = "text-danger" })
+                    <a class="btn btn-primary" style="margin-top:15px;" id="CalculateTotalScore">Calculate Total Score</a>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </center>
+}
+
+<style>
+    .table th, .table td {
+        border-top: none !important;
+    }
+</style>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $("#PFNumber").change(function () {
+                var pfnumber = $("#PFNumber option:selected").text();
+                $("#txtNameSelected").val(pfnumber);
+                $("#txtFullName").val(pfnumber);
+            })
+        })
+    </script>
+
+    <!--Algorithm Start-->
+    <script>
+        //Team Spirit
+        $('input[type=radio][name=TeamSpirit]').change(function () {
+            if (this.value == 'Poor') {
+                var teamspirit = "0.6"
+                $("#MyTeamSpirit").val(teamspirit);
+            }
+            else if (this.value == 'Fair') {
+                var teamspirit = "1.2"
+                $("#MyTeamSpirit").val(teamspirit);
+            }
+            else if (this.value == 'Good') {
+                var teamspirit = "1.8"
+                $("#MyTeamSpirit").val(teamspirit);
+            }
+            else if (this.value == 'Very Good') {
+                var teamspirit = "2.4"
+                $("#MyTeamSpirit").val(teamspirit);
+            }
+            else if (this.value == 'Excellent') {
+                var teamspirit = "3.0"
+                $("#MyTeamSpirit").val(teamspirit);
+            }
+        });
+    </script>
+    <script>
+        //Integrity
+        $('input[type=radio][name=Integrity]').change(function () {
+            if (this.value == 'Poor') {
+                var integrity = "0.6"
+                $("#MyIntegrity").val(integrity);
+            }
+            else if (this.value == 'Fair') {
+                var integrity = "1.2"
+                $("#MyIntegrity").val(integrity);
+            }
+            else if (this.value == 'Good') {
+                var integrity = "1.8"
+                $("#MyIntegrity").val(integrity);
+            }
+            else if (this.value == 'Very Good') {
+                var integrity = "2.4"
+                $("#MyIntegrity").val(integrity);
+            }
+            else if (this.value == 'Excellent') {
+                var integrity = "3.0"
+                $("#MyIntegrity").val(integrity);
+            }
+        });
+    </script>
+    <script>
+        //Initiative and self drive
+        $('input[type=radio][name=InitiativeandSelfdrive]').change(function () {
+            if (this.value == 'Poor') {
+                var initiativeandselfdrive = "0.6"
+                $("#MyInitiativeandSelfdrive").val(initiativeandselfdrive);
+            }
+            else if (this.value == 'Fair') {
+                var initiativeandselfdrive = "1.2"
+                $("#MyInitiativeandSelfdrive").val(initiativeandselfdrive);
+            }
+            else if (this.value == 'Good') {
+                var initiativeandselfdrive = "1.8"
+                $("#MyInitiativeandSelfdrive").val(initiativeandselfdrive);
+            }
+            else if (this.value == 'Very Good') {
+                var initiativeandselfdrive = "2.4"
+                $("#MyInitiativeandSelfdrive").val(initiativeandselfdrive);
+            }
+            else if (this.value == 'Excellent') {
+                var initiativeandselfdrive = "3.0"
+                $("#MyInitiativeandSelfdrive").val(initiativeandselfdrive);
+            }
+        });
+    </script>
+    <script>
+        //Interpersonal relations
+        $('input[type=radio][name=InterpersonalRelations]').change(function () {
+            if (this.value == 'Poor') {
+                var interpersonalrelations = "0.6"
+                $("#MyInterpersonalRelations").val(interpersonalrelations);
+            }
+            else if (this.value == 'Fair') {
+                var interpersonalrelations = "1.2"
+                $("#MyInterpersonalRelations").val(interpersonalrelations);
+            }
+            else if (this.value == 'Good') {
+                var interpersonalrelations = "1.8"
+                $("#MyInterpersonalRelations").val(interpersonalrelations);
+            }
+            else if (this.value == 'Very Good') {
+                var interpersonalrelations = "2.4"
+                $("#MyInterpersonalRelations").val(interpersonalrelations);
+            }
+            else if (this.value == 'Excellent') {
+                var interpersonalrelations = "3.0"
+                $("#MyInterpersonalRelations").val(interpersonalrelations);
+            }
+        });
+    </script>
+    <script>
+        //Punctuality and attendance
+        $('input[type=radio][name=PunctualityandAttendance]').change(function () {
+            if (this.value == 'Poor') {
+                var punctualityandattendance = "0.6"
+                $("#MyPunctualityandAttendance").val(punctualityandattendance);
+            }
+            else if (this.value == 'Fair') {
+                var punctualityandattendance = "1.2"
+                $("#MyPunctualityandAttendance").val(punctualityandattendance);
+            }
+            else if (this.value == 'Good') {
+                var punctualityandattendance = "1.8"
+                $("#MyPunctualityandAttendance").val(punctualityandattendance);
+            }
+            else if (this.value == 'Very Good') {
+                var punctualityandattendance = "2.4"
+                $("#MyPunctualityandAttendance").val(punctualityandattendance);
+            }
+            else if (this.value == 'Excellent') {
+                var punctualityandattendance = "3.0"
+                $("#MyPunctualityandAttendance").val(punctualityandattendance);
+            }
+        });
+    </script>
+    <script>
+        //Technical competencies
+        $('input[type=radio][name=TechnicalCompetencies]').change(function () {
+            if (this.value == 'Poor') {
+                var technicalcompetencies = "0.6"
+                $("#MyTechnicalCompetencies").val(technicalcompetencies);
+            }
+            else if (this.value == 'Fair') {
+                var technicalcompetencies = "1.2"
+                $("#MyTechnicalCompetencies").val(technicalcompetencies);
+            }
+            else if (this.value == 'Good') {
+                var technicalcompetencies = "1.8"
+                $("#MyTechnicalCompetencies").val(technicalcompetencies);
+            }
+            else if (this.value == 'Very Good') {
+                var technicalcompetencies = "2.4"
+                $("#MyTechnicalCompetencies").val(technicalcompetencies);
+            }
+            else if (this.value == 'Excellent') {
+                var technicalcompetencies = "3.0"
+                $("#MyTechnicalCompetencies").val(technicalcompetencies);
+            }
+        });
+    </script>
+    <script>
+        //Dependability and resourcefulness
+        $('input[type=radio][name=DependabilityandResourcefulness]').change(function () {
+            if (this.value == 'Poor') {
+                var dependabilityandresourcefulness = "0.6"
+                $("#MyDependabilityandResourcefulness").val(dependabilityandresourcefulness);
+            }
+            else if (this.value == 'Fair') {
+                var dependabilityandresourcefulness = "1.2"
+                $("#MyDependabilityandResourcefulness").val(dependabilityandresourcefulness);
+            }
+            else if (this.value == 'Good') {
+                var dependabilityandresourcefulness = "1.8"
+                $("#MyDependabilityandResourcefulness").val(dependabilityandresourcefulness);
+            }
+            else if (this.value == 'Very Good') {
+                var dependabilityandresourcefulness = "2.4"
+                $("#MyDependabilityandResourcefulness").val(dependabilityandresourcefulness);
+            }
+            else if (this.value == 'Excellent') {
+                var dependabilityandresourcefulness = "3.0"
+                $("#MyDependabilityandResourcefulness").val(dependabilityandresourcefulness);
+            }
+        });
+    </script>
+    <script>
+        //Resource management
+        $('input[type=radio][name=ResourceManagement]').change(function () {
+            if (this.value == 'Poor') {
+                var resourcemanagement = "0.6"
+                $("#MyResourceManagement").val(resourcemanagement);
+            }
+            else if (this.value == 'Fair') {
+                var resourcemanagement = "1.2"
+                $("#MyResourceManagement").val(resourcemanagement);
+            }
+            else if (this.value == 'Good') {
+                var resourcemanagement = "1.8"
+                $("#MyResourceManagement").val(resourcemanagement);
+            }
+            else if (this.value == 'Very Good') {
+                var resourcemanagement = "2.4"
+                $("#MyResourceManagement").val(resourcemanagement);
+            }
+            else if (this.value == 'Excellent') {
+                var resourcemanagement = "3.0"
+                $("#MyResourceManagement").val(resourcemanagement);
+            }
+        });
+    </script>
+    <script>
+        //Delivery and promptness
+        $('input[type=radio][name=DeliveryandPromptness]').change(function () {
+            if (this.value == 'Poor') {
+                var deliveryandpromptness = "0.6"
+                $("#MyDeliveryandPromptness").val(deliveryandpromptness);
+            }
+            else if (this.value == 'Fair') {
+                var deliveryandpromptness = "1.2"
+                $("#MyDeliveryandPromptness").val(deliveryandpromptness);
+            }
+            else if (this.value == 'Good') {
+                var deliveryandpromptness = "1.8"
+                $("#MyDeliveryandPromptness").val(deliveryandpromptness);
+            }
+            else if (this.value == 'Very Good') {
+                var deliveryandpromptness = "2.4"
+                $("#MyDeliveryandPromptness").val(deliveryandpromptness);
+            }
+            else if (this.value == 'Excellent') {
+                var deliveryandpromptness = "3.0"
+                $("#MyDeliveryandPromptness").val(deliveryandpromptness);
+            }
+        });
+    </script>
+    <script>
+        //Attitude to work and colleagues
+        $('input[type=radio][name=AttitudetoWorkandColleagues]').change(function () {
+            if (this.value == 'Poor') {
+                var attitudetoworkandcolleagues = "0.6"
+                $("#MyAttitudetoWorkandColleagues").val(attitudetoworkandcolleagues);
+            }
+            else if (this.value == 'Fair') {
+                var attitudetoworkandcolleagues = "1.2"
+                $("#MyAttitudetoWorkandColleagues").val(attitudetoworkandcolleagues);
+            }
+            else if (this.value == 'Good') {
+                var attitudetoworkandcolleagues = "1.8"
+                $("#MyAttitudetoWorkandColleagues").val(attitudetoworkandcolleagues);
+            }
+            else if (this.value == 'Very Good') {
+                var attitudetoworkandcolleagues = "2.4"
+                $("#MyAttitudetoWorkandColleagues").val(attitudetoworkandcolleagues);
+            }
+            else if (this.value == 'Excellent') {
+                var attitudetoworkandcolleagues = "3.0"
+                $("#MyAttitudetoWorkandColleagues").val(attitudetoworkandcolleagues);
+            }
+        });
+    </script>
+    <script>
+        //Summation
+        $("#CalculateTotalScore").click(function () {
+            var a = parseInt($("#MyTeamSpirit").val()) || 0;
+            var b = parseInt($("#MyIntegrity").val()) || 0;
+            var c = parseInt($("#MyInitiativeandSelfdrive").val()) || 0;
+            var d = parseInt($("#MyInterpersonalRelations").val()) || 0;
+            var e = parseInt($("#MyPunctualityandAttendance").val()) || 0;
+            var f = parseInt($("#MyTechnicalCompetencies").val()) || 0;
+            var g = parseInt($("#MyDependabilityandResourcefulness").val()) || 0;
+            var h = parseInt($("#MyResourceManagement").val()) || 0;
+            var i = parseInt($("#MyDeliveryandPromptness").val()) || 0;
+            var j = parseInt($("#MyAttitudetoWorkandColleagues").val()) || 0;
+
+            var summation = a + b + c + d + e + f + g + h + i + j;
+            $("#totalscore").val(summation);
+        })
+    </script>
+    <!--Algorithm End-->
+}

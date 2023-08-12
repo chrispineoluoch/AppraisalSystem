@@ -1,0 +1,181 @@
+﻿@model AppraisalSystem.Models.apraiseeandsupervisorcomments
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <center>
+        <div class="form-horizontal">
+            <h4>STAFF EVALUATION FORM: APPRAISEE COMMENTS</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <section>
+                <div class="row">
+                    <div class="col" style="display:none;">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Staff user name
+                                </p>
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "User Name" } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="display:none;">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Staff personal number
+                                </p>
+                                @Html.EditorFor(model => model.PFNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Personal Number" } })
+                                @Html.ValidationMessageFor(model => model.PFNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="display:none;">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Enter your full name
+                                </p>
+                                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Full Name" } })
+                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Select the current financial year
+                                </p>
+                                @Html.DropDownListFor(model => model.FinancialYear, new List<SelectListItem>()
+       {
+           new SelectListItem {Text="2019/2020", Value="2019/2020" },
+           new SelectListItem {Text="2020/2021", Value="2020/2021" },
+           new SelectListItem {Text="2021/2022", Value="2021/2022" },
+           new SelectListItem {Text="2022/2023", Value="2022/2023" },
+           new SelectListItem {Text="2023/2024", Value="2023/2024" }
+       },
+        "Financial Year", new { @class = "form-control", placeholder = "Financial Year" })
+                                @Html.ValidationMessageFor(model => model.FinancialYear, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p style="font-style:italic;">
+                            Did the performance related discussion take place during the reporting period you are your supervisor?
+                        </p>
+                        @Html.DropDownListFor(model => model.DiscussionConfirmation, new List<SelectListItem>()
+       {
+           new SelectListItem {Text="Yes", Value="Yes" },
+           new SelectListItem {Text="No", Value="No" }
+       },
+        "Discussion Confirmation", new { @class = "form-control", placeholder = "Discussion Confirmation" })
+                        @Html.ValidationMessageFor(model => model.DiscussionConfirmation, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="font-style:italic;">
+                        What are your general comments (if any) on your overall performance?
+                    </p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AppraiseeComments, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AppraiseeComments, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="font-style:italic;">
+                        When was the date of your appraisal?
+                    </p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AppraiseeDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.AppraiseeDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </section>
+
+            <section style="display:none;">
+                <div class="form-group">
+                    <p style="font-style:italic;">
+                        What are some of the strengths of the employee?
+                    </p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EmployeeStrengths, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EmployeeStrengths, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="font-style:italic;">
+                        What are some of the difficulties of the employee?
+                    </p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EmployeeDifficulties, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EmployeeDifficulties, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="font-style:italic;">
+                        What are your comments on the employee's performance?
+                    </p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SupervisorPerformanceComments, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SupervisorPerformanceComments, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SupervisorName, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor Name" } })
+                        @Html.ValidationMessageFor(model => model.SupervisorName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SupervisorDate, new { htmlAttributes = new { @class = "form-control datepicker", placeholder = "Date of Submission" } })
+                        @Html.ValidationMessageFor(model => model.SupervisorDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </center>
+}
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@section Scripts
+    {
+
+    <script>
+        $(document).ready(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "mm/dd/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1920:2030"
+            });
+        });
+    </script>
+
+}

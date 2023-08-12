@@ -1,0 +1,83 @@
+﻿@model AppraisalSystem.Models.personaldetails
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>personaldetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PFNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PFNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatureofEmployment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatureofEmployment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcademicQualifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcademicQualifications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfessionalCertifications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfessionalCertifications)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

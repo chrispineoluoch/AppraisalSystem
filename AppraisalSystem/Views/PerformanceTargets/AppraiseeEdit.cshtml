@@ -1,0 +1,743 @@
+﻿@model AppraisalSystem.Models.performancetargets
+
+@{
+    ViewBag.Title = "Performance Targets Review";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .btnwidth {
+        width: 350px;
+        position: relative;
+        left: -10px;
+    }
+
+    #objectivesandtargets {
+        margin-bottom: 20px;
+    }
+</style>
+
+<center>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>
+                STAFF EVALUATION FORM: PERFORMANCE TARGETS REVIEW BY APPRAISEE <br />
+                Appraisee's Name: @ViewBag.Message
+            </h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <section id="personaldetails">
+                <div class="form-group" style="display:none;">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "User Name" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PFNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Personal Number" } })
+                        @Html.ValidationMessageFor(model => model.PFNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Full Name" } })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SupervisorName, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor Name" } })
+                        @Html.ValidationMessageFor(model => model.SupervisorName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p style="font-style:italic;">
+                            Review the selected financial year
+                        </p>
+                        @Html.DropDownListFor(model => model.FinancialYear, new List<SelectListItem>()
+       {
+           new SelectListItem {Text="2019/2020", Value="2019/2020" },
+           new SelectListItem {Text="2020/2021", Value="2020/2021" },
+           new SelectListItem {Text="2021/2022", Value="2021/2022" },
+           new SelectListItem {Text="2022/2023", Value="2022/2023" },
+           new SelectListItem {Text="2023/2024", Value="2023/2024" }
+       },
+        "Financial Year", new { @class = "form-control", placeholder = "Financial Year" })
+                        @Html.ValidationMessageFor(model => model.FinancialYear, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </section>
+
+            <section id="objectivesandtargets">
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectionone" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR FIRST TARGET</button>
+                    </div>
+
+                    <div id="sectionone" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR FIRST TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_1, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_1, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_1, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_1, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_1, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectiontwo" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR SECOND TARGET</button>
+                    </div>
+
+                    <div id="sectiontwo" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR SECOND TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_2, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_2, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_2, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_2, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_2, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectionthree" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR THIRD TARGET</button>
+                    </div>
+
+                    <div id="sectionthree" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR THIRD TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_3, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_3, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_3, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_3, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_3, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_3, "", new { @class = "text-danger" })
+                        </div>
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_3, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_3, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_3, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_3, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectionfour" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR FOURTH TARGET</button>
+                    </div>
+
+                    <div id="sectionfour" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR FOURTH TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_4, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_4, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_4, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_4, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_4, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_4, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_4, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_4, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_4, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_4, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectionfive" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR FIFTH TARGET</button>
+                    </div>
+
+                    <div id="sectionfive" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR FIFTH TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_5, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_5, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_5, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_5, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_5, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_5, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_5, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_5, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_5, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_5, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectionsix" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR SIXTH TARGET</button>
+                    </div>
+
+                    <div id="sectionsix" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR SIXTH TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_6, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_6, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_6, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_6, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_6, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_6, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_6, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_6, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_6, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_6, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectionseven" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR SEVENTH TARGET</button>
+                    </div>
+
+                    <div id="sectionseven" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR SEVENTH TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_7, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_7, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_7, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_7, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_7, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_7, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_7, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_7, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_7, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_7, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectioneight" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR EIGHTH TARGET</button>
+                    </div>
+
+                    <div id="sectioneight" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR EIGHTH TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_8, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_8, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_8, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_8, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_8, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_8, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_8, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_8, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_8, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_8, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectionnine" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR NINTH TARGET</button>
+                    </div>
+
+                    <div id="sectionnine" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR NINTH TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_9, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_9, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_9, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_9, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_9, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_9, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_9, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_9, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_9, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_9, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <button class="btn btn-primary btnwidth" data-toggle="collapse" type="button" data-target="#sectionten" style="margin-top:20px;margin-left:20px;">CLICK TO REVIEW YOUR TENTH TARGET</button>
+                    </div>
+
+                    <div id="sectionten" class="collapse">
+                        <h3 style="margin-bottom:25px;margin-top:20px;">REVIEW YOUR TENTH TARGET</h3>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the objective - review the objective with respect to the concerned project.
+                            </p>
+                            @Html.EditorFor(model => model.Objective_10, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Objective_10, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Review the target - review the target for this objective. Ensure that the target set is a S.M.A.R.T target.
+                            </p>
+                            @Html.EditorFor(model => model.Target_10, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Target_10, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <p style="font-style:italic;">
+                                Record your results - specify the results achieved for this objective.
+                            </p>
+                            @Html.EditorFor(model => model.ResultAchieved_10, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ResultAchieved_10, "", new { @class = "text-danger" })
+                        </div>
+
+                        <p style="font-style:italic;">
+                            Use the key below when awarding a grade. <br />
+                            Excellent - 5, Very Good - 4, good - 3, Fair - 2, Poor – 1
+                        </p>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p style="font-style:italic;">
+                                    Award yourself a grade as the apraisee.
+                                </p>
+                                @Html.EditorFor(model => model.IndividualRating_10, new { htmlAttributes = new { @class = "form-control", placeholder = "Individual's Rating" } })
+                                @Html.ValidationMessageFor(model => model.IndividualRating_10, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div style="display:none;">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <p style="font-style:italic;">
+                                        Award the apraisee a grade as the supervisor.
+                                    </p>
+                                    @Html.EditorFor(model => model.SupervisorRating_10, new { htmlAttributes = new { @class = "form-control", placeholder = "Supervisor's Rating" } })
+                                    @Html.ValidationMessageFor(model => model.SupervisorRating_10, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="otherdetails">
+                <div class="form-group" style="display:none;">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PTSettingDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Setting Date of PT" } })
+                        @Html.ValidationMessageFor(model => model.PTSettingDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PTAppraisalDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Appraisal Date of PT" } })
+                        @Html.ValidationMessageFor(model => model.PTAppraisalDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="font-style:italic;">
+                        Review the number of performance targets set in the above section. <br />
+                        This field is very important and must be captured correctly by the supervisor.
+                    </p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NumberofTargets, new { htmlAttributes = new { @class = "form-control", placeholder = "Total Number of PTs" } })
+                        @Html.ValidationMessageFor(model => model.NumberofTargets, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div style="display:none;">
+                    <p style="font-style:italic;">
+                        This is the performance targets score.
+                    </p>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PTTotalScore, new { htmlAttributes = new { @class = "form-control", placeholder = "Performance Targets Score" } })
+                            @Html.ValidationMessageFor(model => model.PTTotalScore, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:none;">
+                    <p style="font-style:italic;">
+                        This is the values and competencies score.
+                    </p>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.VCTotalScore, new { htmlAttributes = new { @class = "form-control", placeholder = "Values and Competencies Score" } })
+                            @Html.ValidationMessageFor(model => model.VCTotalScore, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:none;">
+                    <p style="font-style:italic;">
+                        This is the overall score.
+                    </p>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OverallScore, new { htmlAttributes = new { @class = "form-control", placeholder = "Overall Score" } })
+                            @Html.ValidationMessageFor(model => model.OverallScore, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    }
+</center>

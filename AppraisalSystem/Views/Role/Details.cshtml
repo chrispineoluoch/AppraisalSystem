@@ -1,0 +1,27 @@
+﻿@model AppraisalSystem.Models.RoleViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5 style="position:relative;top:15px;font-weight:normal;">Role Details </h5>
+<hr />
+
+<div style="border:none;text-decoration-color:#293955;margin-bottom:0px;font-size:smaller;">
+
+    <dl class="dl-horizontal">
+        <dt style="font-weight:600">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p style="font-size:smaller">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,59 @@
+﻿@model AppraisalSystem.Models.apraiseeandsupervisorcomments
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>apraiseecomments</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PFNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PFNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscussionConfirmation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscussionConfirmation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppraiseeComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppraiseeComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppraiseeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppraiseeDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

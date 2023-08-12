@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AppraisalSystem.Models.RoleViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5 style="position:relative;top:15px;font-weight:normal;">Existing Roles </h5>
+
+<div style="border:none;text-decoration-color:#293955;margin-bottom:0px;">
+
+    <div style="font-size:smaller;">
+        <p>
+            <hr />
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+
+    <table class="table" style="table-layout:fixed;word-wrap:break-word;font-size:11px;position:relative;top:30px;">
+        <tr style="border:solid;border-width:thin;background-color:#375A7F;color:#3E3F3A;">
+            <th style="font-weight:400;border:solid;border-width:thin;color:#dfd7ca;border-color:#3E3F3A;">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th style="font-weight:400;border:solid;border-width:thin;color:#dfd7ca;border-color:#3E3F3A;">
+                Action
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr style="border:solid;border-width:thin;background-color:whitesmoke;">
+                <td style="border:solid;border-width:thin;">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td style="border:solid;border-width:thin;">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+

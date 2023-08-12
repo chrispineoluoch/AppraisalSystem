@@ -1,0 +1,491 @@
+﻿@model AppraisalSystem.Models.performancetargets
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>performancetargets</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PFNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PFNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective_10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective_10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Target_10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Target_10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultAchieved_10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultAchieved_10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndividualRating_10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndividualRating_10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorRating_10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorRating_10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTSettingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTSettingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTAppraisalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTAppraisalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberofTargets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberofTargets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTTotalScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTTotalScore)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
